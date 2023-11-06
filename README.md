@@ -112,7 +112,43 @@ Course Screen: Time Tracking Tab (Optional story)
 
 ### Models
 
-[Add table of models]
+__Assignments__
+| Attribute        | Type    | Details     |
+|------------------|---------|-------------|
+| creationDate     | Date    |             |
+| lastModifiedDate  | Date    |             |
+| enabled          | Boolean | Default=YES |
+| name             | String  | Default=""  |
+| uuid             | UUID    | Optional    |
+
+| Relationship       | Destination        | Inverse            | Type               |
+|--------------------|--------------------|--------------------|--------------------|
+| notes              | Note               | assignment         | To One             |
+| weightGroup        | WeightGroup        | assignments        | To One             |
+
+__Course__
+| Attribute         | Type      | Details              |
+|-------------------|-----------|----------------------|
+| courseDescription | String    | Default=""           |
+| courseIdentified   | String    | Default=""           |
+| courseStatus      | Integer32 | Default=0            |
+| creationDate      | Date      |                      |
+| creditHours       | Integer32 | Default=0            |
+| excludeFromGPA    | Boolean   | Default=NO           |
+| iconID            | Integer32 | Default=0            |
+| colorID           | Integer32 | Default=0            |
+| lastModifiedDate   | Date      |                      |
+| name              | String    | Default=""           |
+| professor         | String    | Optional, Default="" |
+| uuid              | UUID      | Optional             |
+
+| Relationship      | Destination       | Inverse | Type    |
+|-------------------|-------------------|---------|---------|
+| degreeCourseGroup | DegreeCourseGroup | courses | To One  |
+| notes             | Note              | course  | To Many |
+| timeslots         | TimeSlot          | course  | To Many |
+| weightGroups      | WeightGroup       | course  | To Many |
+
 
 ### Networking
 

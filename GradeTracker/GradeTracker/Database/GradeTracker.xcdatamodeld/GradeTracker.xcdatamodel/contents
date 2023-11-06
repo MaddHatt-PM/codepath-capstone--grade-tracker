@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="22G120" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Assignment" representedClassName="Assignment" syncable="YES" codeGenerationType="class">
-        <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="720936540" usesScalarValueType="NO"/>
         <attribute name="enabled" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
-        <attribute name="lastModifiedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="lastModifiedDate" attributeType="Date" defaultDateTimeInterval="720936540" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="assignment" inverseEntity="Note"/>
         <relationship name="weightGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeightGroup" inverseName="assignments" inverseEntity="WeightGroup"/>
     </entity>
     <entity name="Course" representedClassName="Course" syncable="YES" codeGenerationType="class">
+        <attribute name="colorID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="courseDescription" attributeType="String" defaultValueString=""/>
         <attribute name="courseIdentifier" attributeType="String" defaultValueString=""/>
-        <attribute name="courseStatus" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="courseStatus" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="720932520" usesScalarValueType="NO"/>
         <attribute name="creditHours" attributeType="Integer 32" defaultValueString="3" usesScalarValueType="YES"/>
         <attribute name="excludeFromGPA" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
-        <attribute name="iconID" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="iconID" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lastModifiedDate" attributeType="Date" defaultDateTimeInterval="720932520" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <attribute name="professor" optional="YES" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="degreeCourseGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DegreeCourseGroup" inverseName="courses" inverseEntity="DegreeCourseGroup"/>
-        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="course" inverseEntity="Note"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="course" inverseEntity="Note"/>
         <relationship name="timeslots" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TimeSlot" inverseName="course" inverseEntity="TimeSlot"/>
-        <relationship name="weightgroups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeightGroup" inverseName="course" inverseEntity="WeightGroup"/>
+        <relationship name="weightGroups" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeightGroup" inverseName="course" inverseEntity="WeightGroup"/>
     </entity>
     <entity name="Degree" representedClassName="Degree" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -81,6 +82,6 @@
         <attribute name="rawWeight" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="assignments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Assignment" inverseName="weightGroup" inverseEntity="Assignment"/>
-        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="weightgroups" inverseEntity="Course"/>
+        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="weightGroups" inverseEntity="Course"/>
     </entity>
 </model>

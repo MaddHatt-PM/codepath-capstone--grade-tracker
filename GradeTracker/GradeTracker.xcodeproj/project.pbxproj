@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CAA4E4702AF88C5700B6863E /* GradeTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4E46F2AF88C5700B6863E /* GradeTrackerApp.swift */; };
-		CAA4E4722AF88C5700B6863E /* PrototypeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4E4712AF88C5700B6863E /* PrototypeContentView.swift */; };
+		CAA4E4722AF88C5700B6863E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4E4712AF88C5700B6863E /* ContentView.swift */; };
 		CAA4E4742AF88C5800B6863E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAA4E4732AF88C5800B6863E /* Assets.xcassets */; };
 		CAA4E4772AF88C5800B6863E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAA4E4762AF88C5800B6863E /* Preview Assets.xcassets */; };
 		CAA4E4792AF88C5800B6863E /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4E4782AF88C5800B6863E /* DatabaseManager.swift */; };
@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		CAA4E46C2AF88C5700B6863E /* GradeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA4E46F2AF88C5700B6863E /* GradeTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTrackerApp.swift; sourceTree = "<group>"; };
-		CAA4E4712AF88C5700B6863E /* PrototypeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrototypeContentView.swift; sourceTree = "<group>"; };
+		CAA4E4712AF88C5700B6863E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CAA4E4732AF88C5800B6863E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAA4E4762AF88C5800B6863E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAA4E4782AF88C5800B6863E /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
@@ -100,10 +100,11 @@
 		CAA4E46E2AF88C5700B6863E /* GradeTracker */ = {
 			isa = PBXGroup;
 			children = (
-				CAA4E4A12AF88D9C00B6863E /* ProjectInfo */,
+				CAA4E47E2AF88C5800B6863E /* Info.plist */,
+				CAA4E47D2AF88C5800B6863E /* GradeTracker.entitlements */,
 				CAA4E4A02AF88CF700B6863E /* Database */,
 				CAA4E46F2AF88C5700B6863E /* GradeTrackerApp.swift */,
-				CAA4E4712AF88C5700B6863E /* PrototypeContentView.swift */,
+				CAA4E4712AF88C5700B6863E /* ContentView.swift */,
 				CAA4E4732AF88C5800B6863E /* Assets.xcassets */,
 				CAA4E4752AF88C5800B6863E /* Preview Content */,
 			);
@@ -142,15 +143,6 @@
 				CAA4E47A2AF88C5800B6863E /* GradeTracker.xcdatamodeld */,
 			);
 			path = Database;
-			sourceTree = "<group>";
-		};
-		CAA4E4A12AF88D9C00B6863E /* ProjectInfo */ = {
-			isa = PBXGroup;
-			children = (
-				CAA4E47E2AF88C5800B6863E /* Info.plist */,
-				CAA4E47D2AF88C5800B6863E /* GradeTracker.entitlements */,
-			);
-			path = ProjectInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +277,7 @@
 			files = (
 				CAA4E47C2AF88C5800B6863E /* GradeTracker.xcdatamodeld in Sources */,
 				CAA4E4792AF88C5800B6863E /* DatabaseManager.swift in Sources */,
-				CAA4E4722AF88C5700B6863E /* PrototypeContentView.swift in Sources */,
+				CAA4E4722AF88C5700B6863E /* ContentView.swift in Sources */,
 				CAA4E4702AF88C5700B6863E /* GradeTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

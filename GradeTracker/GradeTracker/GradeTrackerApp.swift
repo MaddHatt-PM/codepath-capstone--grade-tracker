@@ -13,7 +13,7 @@ struct GradeTrackerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PrototypeContentView()
+            ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
