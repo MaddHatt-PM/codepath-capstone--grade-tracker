@@ -112,35 +112,37 @@ Course Screen: Time Tracking Tab (Optional story)
 
 ### Models
 
-__Assignments__
-| Attribute        | Type    | Details     |
-|------------------|---------|-------------|
-| creationDate     | Date    |             |
-| lastModifiedDate  | Date    |             |
-| enabled          | Boolean | Default=YES |
-| name             | String  | Default=""  |
-| uuid             | UUID    | Optional    |
+__Assignments__: A task assigned from a course with or without a grade.
+| Attribute        | Type    | Details                 |
+|------------------|---------|-------------------------|
+| name             | String  | Default=""              |
+| uuid             | UUID    | Optional                |
+| creationDate     | Date    |                         |
+| lastModifiedDate | Date    |                         |
+| enabled          | Boolean | Default=YES             |
+| awardedPoints    | Double  | Optional                | ADD LATER
+| totalPoints      | Double  | Optional, Default=100.0 | ADD LATER
 
 | Relationship       | Destination        | Inverse            | Type               |
 |--------------------|--------------------|--------------------|--------------------|
 | notes              | Note               | assignment         | To One             |
 | weightGroup        | WeightGroup        | assignments        | To One             |
 
-__Course__
+__Course__: A collection of assignments
 | Attribute         | Type      | Details              |
 |-------------------|-----------|----------------------|
-| courseDescription | String    | Default=""           |
-| courseIdentified   | String    | Default=""           |
-| courseStatus      | Integer32 | Default=0            |
+| name              | String    | Default=""           |
+| uuid              | UUID      | Optional             |
 | creationDate      | Date      |                      |
+| lastModifiedDate  | Date      |                      |
+| professor         | String    | Optional, Default="" |
+| courseDescription | String    | Default=""           |
+| courseIdentifier  | String    | Default=""           |
+| courseStatus      | Integer32 | Default=0            |
 | creditHours       | Integer32 | Default=0            |
 | excludeFromGPA    | Boolean   | Default=NO           |
 | iconID            | Integer32 | Default=0            |
 | colorID           | Integer32 | Default=0            |
-| lastModifiedDate   | Date      |                      |
-| name              | String    | Default=""           |
-| professor         | String    | Optional, Default="" |
-| uuid              | UUID      | Optional             |
 
 | Relationship      | Destination       | Inverse | Type    |
 |-------------------|-------------------|---------|---------|
@@ -149,6 +151,102 @@ __Course__
 | timeslots         | TimeSlot          | course  | To Many |
 | weightGroups      | WeightGroup       | course  | To Many |
 
+__Degree__: Collection of DegreeCourseGroups.  
+| Attribute         | Type      | Details              |
+|-------------------|-----------|----------------------|
+| name              | String    | Default=""           |
+| uuid              | UUID      | Optional             | ADD LATER
+| creationDate      | Date      |                      |
+| lastModifiedDate  | Date      |                      |
+| degreeDescription | String    | Default=""           |
+| degreeStatus      | Integer32 | Default=0            |
+| degreeType        | String    | Default=""           |
+
+
+| Relationship      | Destination       | Inverse | Type    |
+|-------------------|-------------------|---------|---------|
+| courseGroups      | DegreeCourseGroup | degree  | To One  |
+
+__DegreeCourseGroup__: Collection of Courses with customizable constraints.  
+| Attribute              | Type      | Details              |
+|------------------------|-----------|----------------------|
+| name                   | String    | Default=""           |
+| uuid                   | UUID      | Optional             |
+| creationDate           | Date      |                      |
+| lastModifiedDate       | Date      |                      |
+| groupDescription       | String    | Default=""           |
+| groupType              | Integer32 | Default=0            |
+| minimumCoursesRequired | Integer32 | Optional             |
+
+| Relationship      | Destination       | Inverse           | Type    |
+|-------------------|-------------------|-------------------|---------|
+| courses           | Course            | degreeCourseGroup | To One  |
+| degree            | Degree            | courseGroups      | To One  |
+
+__Note__
+| Attribute         | Type      | Details              |
+|-------------------|-----------|----------------------|
+| name              | String    | Default=""           |
+| uuid              | UUID      | Optional             | ADD LATER
+| creationDate      | Date      |                      |
+| lastModifiedDate  | Date      |                      |
+| content           | String    | Default=""           |
+
+| Relationship      | Destination       | Inverse           | Type    |
+|-------------------|-------------------|-------------------|---------|
+| assignment        | Assignment        | notes             | To One  |
+| attachments       | NoteAttachment    | note              | To Many |
+| course            | Course            | notes             | To One  |
+| tags              | NoteTag           | note              | To Many |
+
+__NoteAttachment__
+| Attribute         | Type       | Details              |
+|-------------------|------------|----------------------|
+| name              | String     | Default=""           |
+| uuid              | UUID       | Optional             | ADD LATER
+| binaryData        | BinaryData | Optional             |
+| filename          | String     | Optional             |
+
+| Relationship      | Destination       | Inverse           | Type    |
+|-------------------|-------------------|-------------------|---------|
+| note              | Note              | attachments       | To One  |
+
+__NoteTag__
+| Attribute         | Type      | Details              |
+|-------------------|-----------|----------------------|
+| name              | String     | Default=""          |
+| uuid              | UUID       | Optional            |
+
+| Relationship | Destination | Inverse     | Type    |
+|--------------|-------------|-------------|---------|
+| note         | Note        | tags        | To Many | CHANGE LATER
+
+__TimeSlot__
+| Attribute         | Type      | Details              |
+|-------------------|-----------|----------------------|
+| uuid              | UUID      | Optional             |
+| startTime         | Date      |                      |
+| endTime           | Date      |                      |
+| days              | Integer32 | Default=0            |
+
+| Relationship   | Destination | Inverse     | Type    |
+|----------------|-------------|-------------|---------|
+| course         | Course      | timeslots   | To One  |
+
+__WeightGroup__
+| Attribute         | Type      | Details              |
+|-------------------|-----------|----------------------|
+| name              | String    | Default=""           |
+| uuid              | UUID      | Optional             |
+| creationDate      | Date      |                      |
+| lastModifiedDate  | Date      |                      |
+| rawWeight         | Double    | Default=1.0          |
+
+
+| Relationship   | Destination | Inverse      | Type    |
+|----------------|-------------|--------------|---------|
+| assignments    | Assignment  | weightGroup  | To Many |
+| course         | Course      | weightGroups | To One  |
 
 ### Networking
 
