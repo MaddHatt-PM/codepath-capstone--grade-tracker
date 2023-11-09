@@ -118,7 +118,7 @@ __Assignments__: A task assigned from a course with or without a grade.
 | name             | String  | Default=""              |
 | uuid             | UUID    | Optional                |
 | creationDate     | Date    |                         |
-| lastModifiedDate | Date    |                         |
+| lastModifiedDate  | Date    |                         |
 | enabled          | Boolean | Default=YES             |
 | awardedPoints    | Double  | Optional                | ADD LATER
 | totalPoints      | Double  | Optional, Default=100.0 | ADD LATER
@@ -127,6 +127,7 @@ __Assignments__: A task assigned from a course with or without a grade.
 |--------------------|--------------------|--------------------|--------------------|
 | notes              | Note               | assignment         | To One             |
 | weightGroup        | WeightGroup        | assignments        | To One             |
+| course             | Course             | assignments        | To One             |
 
 __Course__: A collection of assignments
 | Attribute         | Type      | Details              |
@@ -134,10 +135,10 @@ __Course__: A collection of assignments
 | name              | String    | Default=""           |
 | uuid              | UUID      | Optional             |
 | creationDate      | Date      |                      |
-| lastModifiedDate  | Date      |                      |
+| lastModifiedDate   | Date      |                      |
 | professor         | String    | Optional, Default="" |
 | courseDescription | String    | Default=""           |
-| courseIdentifier  | String    | Default=""           |
+| courseIdentifier   | String    | Default=""           |
 | courseStatus      | Integer32 | Default=0            |
 | creditHours       | Integer32 | Default=0            |
 | excludeFromGPA    | Boolean   | Default=NO           |
@@ -150,14 +151,15 @@ __Course__: A collection of assignments
 | notes             | Note              | course  | To Many |
 | timeslots         | TimeSlot          | course  | To Many |
 | weightGroups      | WeightGroup       | course  | To Many |
+| assignments       | Assignments       | course  | To Many |
 
 __Degree__: Collection of DegreeCourseGroups.  
 | Attribute         | Type      | Details              |
 |-------------------|-----------|----------------------|
 | name              | String    | Default=""           |
-| uuid              | UUID      | Optional             | ADD LATER
+| uuid              | UUID      | Optional             |
 | creationDate      | Date      |                      |
-| lastModifiedDate  | Date      |                      |
+| lastModifiedDate   | Date      |                      |
 | degreeDescription | String    | Default=""           |
 | degreeStatus      | Integer32 | Default=0            |
 | degreeType        | String    | Default=""           |
@@ -173,7 +175,7 @@ __DegreeCourseGroup__: Collection of Courses with customizable constraints.
 | name                   | String    | Default=""           |
 | uuid                   | UUID      | Optional             |
 | creationDate           | Date      |                      |
-| lastModifiedDate       | Date      |                      |
+| lastModifiedDate        | Date      |                      |
 | groupDescription       | String    | Default=""           |
 | groupType              | Integer32 | Default=0            |
 | minimumCoursesRequired | Integer32 | Optional             |
@@ -187,9 +189,9 @@ __Note__
 | Attribute         | Type      | Details              |
 |-------------------|-----------|----------------------|
 | name              | String    | Default=""           |
-| uuid              | UUID      | Optional             | ADD LATER
+| uuid              | UUID      | Optional             |
 | creationDate      | Date      |                      |
-| lastModifiedDate  | Date      |                      |
+| lastModifiedDate   | Date      |                      |
 | content           | String    | Default=""           |
 
 | Relationship      | Destination       | Inverse           | Type    |
@@ -203,9 +205,9 @@ __NoteAttachment__
 | Attribute         | Type       | Details              |
 |-------------------|------------|----------------------|
 | name              | String     | Default=""           |
-| uuid              | UUID       | Optional             | ADD LATER
+| uuid              | UUID       | Optional             |
 | binaryData        | BinaryData | Optional             |
-| filename          | String     | Optional             |
+| filename           | String     | Optional             |
 
 | Relationship      | Destination       | Inverse           | Type    |
 |-------------------|-------------------|-------------------|---------|
@@ -219,7 +221,7 @@ __NoteTag__
 
 | Relationship | Destination | Inverse     | Type    |
 |--------------|-------------|-------------|---------|
-| note         | Note        | tags        | To Many | CHANGE LATER
+| note         | Note        | tags        | To Many |
 
 __TimeSlot__
 | Attribute         | Type      | Details              |
@@ -239,7 +241,7 @@ __WeightGroup__
 | name              | String    | Default=""           |
 | uuid              | UUID      | Optional             |
 | creationDate      | Date      |                      |
-| lastModifiedDate  | Date      |                      |
+| lastModifiedDate   | Date      |                      |
 | rawWeight         | Double    | Default=1.0          |
 
 
@@ -253,3 +255,13 @@ __WeightGroup__
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
+
+## Sprint Progress
+### Week 01 Tasks Completed
+[1] Project setup  
+[4] CoreData models for courses, weight groups, assignments, and notes.  
+[1] Initial UI pass for course.
+[0] Initial UI pass to settings screen from NavBar element.  
+[0] Initial UI pass to create course from NavBar element (popover).  
+[4] Setup initializers and extension methods for all CoreData Entities.  
+[2] Prototype database generator  

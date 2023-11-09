@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct GradeTrackerApp: App {
-    let persistenceController = DatabaseManager.shared
+  let persistenceController = DatabaseStore.shared
 
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
-        }
+  var body: some Scene {
+    WindowGroup {
+      RootScreen()
+        .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
+  }
 }

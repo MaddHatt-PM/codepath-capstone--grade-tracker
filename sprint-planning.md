@@ -7,16 +7,17 @@
 
 ## Task Bank (Separated by Dependency)
 ### Hard Required Features
-[1] Project setup  
-[1] Initial UI pass for course.
-[0] Initial UI pass to settings screen from NavBar element.  
-[0] Initial UI pass to create course from NavBar element (popover).  
-[2] Prototype database generator  
-[4] CoreData models for courses, weight groups, assignments, and notes.  
+DONE [1] Project setup  
+DONE [1] Initial UI pass for course.
+DONE [0] Initial UI pass to settings screen from NavBar element.  
+DONE [0] Initial UI pass to create course from NavBar element (popover).  
+DONE [4] CoreData models for courses, weight groups, assignments, and notes.  
+DONE [4] Setup initializers and extension methods for all CoreData Entities
+DONE [2] Prototype database generator  
 [4] Initial UI pass for demo database.  
 
 
-[0] Settings button to reset database to empty  
+[0] Settings button to reset database to empåty  
 [0] Settings button to reset database to prototype data  
 [2] Prototype data for SwiftUI Previews for course, weight groups, assignments, and notes.  
 [1] Figure out how to call save() on CoreData entity by static reference to Context.  
