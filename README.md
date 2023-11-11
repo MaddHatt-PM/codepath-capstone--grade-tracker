@@ -5,6 +5,11 @@
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
 4. [Schema](#Schema)
+5. [Task Bank](#task-bank-separated-by-dependency)
+6. [Project Progress](#project-progress)
+    1. [Week 01](#week-01-progress)
+
+
 
 ## Overview
 ### Description
@@ -256,8 +261,54 @@ __WeightGroup__
 - [Create basic snippets for each Parse network request]
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
-## Sprint Progress
-### Week 01 Tasks Completed
+
+## Task Bank (Separated by Dependency)
+### Time Estimate Legend
+[0] Less than 1 hour of work  
+[1] 1-2 hours of work  
+[2] 2-4 hours of work  
+[4] 4-8 hours of work  
+[8] More than 8 hours of work  
+
+### Hard Required Features
+DONE [1] Project setup  
+DONE [1] Initial UI pass for course.
+DONE [0] Initial UI pass to settings screen from NavBar element.  
+DONE [0] Initial UI pass to create course from NavBar element (popover).  
+DONE [4] CoreData models for courses, weight groups, assignments, and notes.  
+DONE [4] Setup initializers and extension methods for all CoreData Entities
+DONE [2] Prototype database generator  
+[4] Initial UI pass for demo database.  
+DONE [0] Verifying demo database is working via console.  
+
+DONE [0] Settings button to reset database to empty.  
+DONE [0] Settings button to reset database to prototype data.  
+[2] Prototype data for SwiftUI Previews for course, weight groups, assignments, and notes.  
+[1] Figure out how to call save() on CoreData entity by static reference to Context.  
+$\quad$ Ref: https://stackoverflow.com/questions/56453857/how-to-save-existing-objects-to-core-data  
+[1] Popover to edit all weight groups of a course.  
+[1] Push to edit assignment.  
+[1] Popover to create assignment.  
+[1] ComputeWeightedAverage with course parameter.  
+[2] Second pass at course:assignments tab.  
+[2] Second pass at course:notes tab.  
+[4] Initial pass at course:visualizer SwiftUI graphs.  
+
+### Soft Required Features
+[1] Normalize weight groups when total does not equal 100%.  
+[2] Sort assignments by chronological plus weight group, best to worst, greatest influence, etc.  
+[1] Selectable colors and icons for courses.  
+[2] Customize Main Screen's course button color to course color and tile course icon.  
+[2] Recolor course UI to assigned course color.  
+
+### Optional Features
+[2] Special animated transition from main screen to course screen.  
+[0] When there are no current courses, show a graphic to create a new course.  
+[2] Add StudyTime to database for courses and assignments.  
+
+## Project Progress
+### Week 01 Progress
+__Sprint Tasks Completed__
 [1] Project setup  
 [4] CoreData models for courses, weight groups, assignments, and notes.  
 [1] Initial UI pass for course.
@@ -265,3 +316,14 @@ __WeightGroup__
 [0] Initial UI pass to create course from NavBar element (popover).  
 [4] Setup initializers and extension methods for all CoreData Entities.  
 [2] Prototype database generator  
+[0] Verifying demo database is working via console.  
+[0] Settings button to reset database to empty.  
+[0] Settings button to reset database to prototype data.  
+
+__Video Walkthrough__
+[Demo Video of Week One](https://youtube.com/shorts/2-TQ4_ISDyA?feature=share)
+
+__Reflection__
+For this week I felt like I made great progress with the foundation of the project, specifically with the database portion. While my mac development isn't accessible for me all the time due to commuting to my university, I made up for that time by research best practices for SwiftUI, CoreData, and general project organization. By default, CoreData entities do not have constructors and rely on setting individual values with a call to save via context. I bundled this process so that each entity has their own initializer function. My priority for this week was to have a blueprint for the UI navigation and for adding/querying the database and I feel that I achieved that. In the demo video, the settings screen has buttons to add, reset, and print out the database contents to console. Note that there is no output on the device as the UI would be removed shortly after implementation.  
+
+For next week, I aim to solidify CRUD operations on my data. if possible I would like to start researching SwiftUI Graphs for the week afterwards. With my university schedule being slightly eased up, I hope to achieve these goals despite there being two large exams my friday morning.
