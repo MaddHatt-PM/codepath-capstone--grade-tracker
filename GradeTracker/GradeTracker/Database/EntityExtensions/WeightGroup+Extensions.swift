@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 
 public extension WeightGroup {
-  func create(context: NSManagedObjectContext,
+  func create(_ context: NSManagedObjectContext,
               name: String,
               rawWeight: Double = -1)
   {
@@ -19,6 +19,12 @@ public extension WeightGroup {
     self.lastModifiedDate = .now
     self.uuid = UUID()
     DatabaseStore.saveDatabase(context: context)
+  }
+
+  func addToAssignments(assignments: [Assignment]) {
+    assignments.forEach { item in
+      self.addToAssignments(item)
+    }
   }
 
   func save(context: NSManagedObjectContext) {

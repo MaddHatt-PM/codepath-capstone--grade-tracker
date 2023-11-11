@@ -15,6 +15,7 @@ struct SettingsScreen: View {
     VStack {
       Button {
         DatabaseStore().resetDatabase(context: context)
+        print("Reset Database")
       } label: {
         Text("Reset Database")
       }

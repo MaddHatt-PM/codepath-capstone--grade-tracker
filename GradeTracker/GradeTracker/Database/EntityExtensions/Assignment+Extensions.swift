@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 
 public extension Assignment {
-  func create(context: NSManagedObjectContext,
+  func create(_ context: NSManagedObjectContext,
               name: String,
               earnedPoints: Int32?,
               totalPoints: Int32?,
