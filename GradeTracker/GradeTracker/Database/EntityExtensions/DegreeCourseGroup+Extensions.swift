@@ -9,26 +9,39 @@ import CoreData
 import Foundation
 
 public extension DegreeCourseGroup {
-  func create(context: NSManagedObjectContext,
-              name: String,
+  convenience init(_ context: NSManagedObjectContext,
+                   name: String,
 
-              groupDescription: String = "",
-              groupTypeID: Int32 = 0,
-              minimumCoursesRequired: Int32 = -1,
-              minimumCreditHoursRequired: Int32 = -1)
+                   groupDescription: String = "",
+                   groupTypeID: Int32 = 0,
+                   minimumCoursesRequired: Int32 = -1,
+                   minimumCreditHoursRequired: Int32 = -1)
   {
-    self.name = name
+    self.init(context: context)
+    self.nameRaw = name
 
-    self.groupDescription = groupDescription
+    self.groupDescriptionRaw = groupDescription
     self.groupTypeID = groupTypeID
     self.minimumCoursesRequired = minimumCoursesRequired
-    self.minimumCreditHoursRequired =
-      minimumCreditHoursRequired
+    self.minimumCreditHoursRequired = minimumCreditHoursRequired
 
     self.creationDate = .now
     self.lastModifiedDate = .now
-    self.uuid = UUID()
+    self.uuidRaw = UUID()
     DatabaseStore.saveDatabase(context: context)
+  }
+
+  var name: String { self.nameRaw ?? "Nil degree-course-group name" }
+  var groupDescription: String { self.groupDescriptionRaw ?? "Nil degree-course-group description" }
+  var uuid: UUID {
+    guard let uuidRaw = uuidRaw else {
+      print("UUIDRaw was unexpectedly nil, regenerating for \(self.name)")
+      let uuid = UUID()
+      self.uuidRaw = uuid
+      self.save(context: DatabaseStore.shared.container.viewContext)
+      return uuid
+    }
+    return uuidRaw
   }
 
   func save(context: NSManagedObjectContext) {

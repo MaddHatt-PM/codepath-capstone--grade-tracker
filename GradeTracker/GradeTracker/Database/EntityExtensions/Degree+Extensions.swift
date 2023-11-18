@@ -9,28 +9,42 @@ import CoreData
 import Foundation
 
 public extension Degree {
-  func create(context: NSManagedObjectContext,
-              name: String,
-              
-              degreeDescription: String = "",
-              degreeStatusID: Int32 = 0,
-              degreeType: String = "")
+  convenience init(_ context: NSManagedObjectContext,
+                   name: String,
+                   
+                   degreeDescription: String = "",
+                   degreeStatusID: Int32 = 0,
+                   degreeType: String = "")
   {
-    self.name = name
+    self.init(context: context)
+    self.nameRaw = name
     
-    self.degreeDescription = degreeDescription
+    self.degreeDescriptionRaw = degreeDescription
     self.degreeStatusID = degreeStatusID
-    self.degreeType = degreeType
+    self.degreeTypeRaw = degreeType
     
     self.creationDate = .now
     self.lastModifiedDate = .now
-    self.uuid = UUID()
+    self.uuidRaw = UUID()
     DatabaseStore.saveDatabase(context: context)
+  }
+  
+  var name: String { self.nameRaw ?? "Nil degree name" }
+  var degreeDescription: String { self.degreeDescriptionRaw ?? "Nil degree description" }
+  var degreeType: String { self.degreeTypeRaw ?? "Nil degree type" }
+  var uuid: UUID {
+    guard let uuidRaw = uuidRaw else {
+      print("UUIDRaw was unexpectedly nil, regenerating for \(self.name)")
+      let uuid = UUID()
+      self.uuidRaw = uuid
+      self.save(context: DatabaseStore.shared.container.viewContext)
+      return uuid
+    }
+    return uuidRaw
   }
   
   func save(context: NSManagedObjectContext) {
     self.lastModifiedDate = .now
     DatabaseStore.saveDatabase(context: context)
   }
-  
 }

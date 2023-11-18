@@ -9,17 +9,18 @@ import SwiftUI
 
 struct CurrentCourseGridCell: View {
   var name: String
-//  var course: Course
-//  var cellHeight: CGFloat
+  var course: Course
 
   var body: some View {
-    ZStack {
-      NavigationLink { CourseMainScreen() } label: { Rectangle().fill(.clear) }
-      Rectangle()
-        .fill(.indigo)
-        .allowsHitTesting(false)
-      VStack {
-        Text ("Course \(name)")
+    NavigationLink(value: course) {
+      ZStack {
+        Rectangle()
+          .fill(.indigo.gradient)
+          .allowsHitTesting(false)
+        VStack {
+          Text(name)
+            .padding()
+        }
       }
     }
     .aspectRatio(1.5, contentMode: .fill)

@@ -27,18 +27,27 @@ struct RootScreen: View {
 
   var body: some View {
     NavigationStack {
-      ScrollView(.vertical) {
-        VStack(alignment: .leading) {
-          CourseGridSubView()
-          Spacer()
-        }
-        .sheet(isPresented: $isAddCourseSheetVisible) { AddCourseSheet() }
-        .navigationTitle("Courses")
-        .toolbar {
-          ToolbarItem(placement: .topBarTrailing) { trailingToolbar }
+      BaseScreen {
+        ScrollView(.vertical) {
+          VStack(alignment: .leading) {
+            CourseGridSubView()
+            Spacer()
+          }
+          .sheet(isPresented: $isAddCourseSheetVisible) { AddCourseSheet() }
+          .navigationTitle("Courses")
+          .toolbar {
+            ToolbarItem(placement: .topBarTrailing) { trailingToolbar }
+          }
         }
       }
+      .navigationDestination(for: Course.self) { course in
+        CourseMainScreen(course: course)
+      }
+      .navigationDestination(for: Assignment.self) { assignment in
+        AssignmentDetailScreen(assignment: assignment)
+      }
     }
+    .tint(.white.opacity(0.8))
   }
 }
 
