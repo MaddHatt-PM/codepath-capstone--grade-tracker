@@ -332,7 +332,7 @@ For this week I felt like I made great progress with the foundation of the proje
 For next week, I aim to solidify CRUD operations on my data. if possible I would like to start researching SwiftUI Graphs for the week afterwards. With my university schedule being slightly eased up, I hope to achieve these goals despite there being two large exams my friday morning.
 
 
-### Week 01 Progress
+### Week 02 Progress
 __Sprint Tasks Completed__  
 [2] Prototype data for SwiftUI Previews for course, weight groups, assignments, and notes.  
 [1] Figure out how to call save() on CoreData entity by static reference to Context.  
