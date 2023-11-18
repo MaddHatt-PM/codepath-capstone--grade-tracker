@@ -284,22 +284,25 @@ DONE [1] Added more data fields for DBGen.SimpleSample()
 
 ✅ [0] Settings button to reset database to empty.  
 ✅ [0] Settings button to reset database to prototype data.  
-[2] Prototype data for SwiftUI Previews for course, weight groups, assignments, and notes.  
+DONE [2] Prototype data for SwiftUI Previews for course, weight groups, assignments, and notes.  
 DONE [1] Figure out how to call save() on CoreData entity by static reference to Context.  
 [1] Popover to edit all weight groups of a course.  
 [1] Push to edit assignment.  
 [1] Popover to create assignment.  
-[1] ComputeWeightedAverage with course parameter.  
+DONE [1] ComputeWeightedAverage with course parameter.  
 [2] Second pass at course:assignments tab.  
 [2] Second pass at course:notes tab.  
 [4] Initial pass at course:visualizer SwiftUI graphs.  
 
 ### Soft Required Features
-[1] Normalize weight groups when total does not equal 100%.  
-[2] Sort assignments by chronological plus weight group, best to worst, greatest influence, etc.  
+DONE [1] Normalize weight groups when total does not equal 100%.  
+DONE [2] Sort assignments by chronological plus weight group, best to worst, greatest influence, etc.  
 [1] Selectable colors and icons for courses.  
 [2] Customize Main Screen's course button color to course color and tile course icon.  
 [2] Recolor course UI to assigned course color.  
+DONE [1] Change String variable in CoreData to `<prefix>Raw`.  
+DONE [1] Add clean variables to avoid ?? of certain String variables (ie: name) in UI code
+DONE [1] Change create() function for CoreData entities into convenience init() functions
 
 ### Optional Features
 [2] Special animated transition from main screen to course screen.  
@@ -327,3 +330,21 @@ __Reflection__
 For this week I felt like I made great progress with the foundation of the project, specifically with the database portion. While my mac development isn't accessible for me all the time due to commuting to my university, I made up for that time by research best practices for SwiftUI, CoreData, and general project organization. By default, CoreData entities do not have constructors and rely on setting individual values with a call to save via context. I bundled this process so that each entity has their own initializer function. My priority for this week was to have a blueprint for the UI navigation and for adding/querying the database and I feel that I achieved that. In the demo video, the settings screen has buttons to add, reset, and print out the database contents to console. Note that there is no output on the device as the UI would be removed shortly after implementation.  
 
 For next week, I aim to solidify CRUD operations on my data. if possible I would like to start researching SwiftUI Graphs for the week afterwards. With my university schedule being slightly eased up, I hope to achieve these goals despite there being two large exams my friday morning.
+
+
+### Week 01 Progress
+__Sprint Tasks Completed__  
+[2] Prototype data for SwiftUI Previews for course, weight groups, assignments, and notes.  
+[1] Figure out how to call save() on CoreData entity by static reference to Context.  
+[1] ComputeWeightedAverage with course parameter.  
+[1] Normalize weight groups when total does not equal 100%.  
+[2] Sort assignments by chronological plus weight group, best to worst, greatest influence, etc.  
+[1] Change String variable in CoreData to `<prefix>Raw`.  
+[1] Add clean variables to avoid ?? of certain String variables (ie: name) in UI code
+[1] Change create() function for CoreData entities into convenience init() functions
+
+__Video Walkthrough__
+[Demo Video of Week Two](https://youtube.com/shorts/MiXI2RL7M9c?si=zEBncsu-zIZsxaSm)
+
+__Reflection__  
+For this week I wish i could have made more progress with my app, but unfortunately I had some large exams this week for university. I had also thought that we had another week to work on the project. Nevertheless, I feel that I made good progress with my knowledge of Swift and SwiftUI. Specifically in the ideology of extensions and shifting the logic away from the user interface code. The user interface shouldn't worry about the optional values from CoreData strings, which are always optional even with a default string provided. This leads to cleaner user interface code and more usable logic. I wish I could have had more time to work on the CRUD operations. I'm enjoying this project and hopefully I'll be able to fully finish and polish it up for release over break!

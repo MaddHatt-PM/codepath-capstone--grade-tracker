@@ -9,16 +9,40 @@ import CoreData
 import Foundation
 
 public extension WeightGroup {
-  func create(_ context: NSManagedObjectContext,
-              name: String,
-              rawWeight: Double = -1)
+  convenience init(_ context: NSManagedObjectContext,
+                   name: String,
+                   rawWeight: Double = -1)
   {
-    self.name = name
-    self.rawWeight = rawWeight
+    self.init(context: context)
+    self.nameRaw = name
+
+    self.weightRaw = rawWeight
+
     self.creationDate = .now
     self.lastModifiedDate = .now
-    self.uuid = UUID()
+    self.uuidRaw = UUID()
     DatabaseStore.saveDatabase(context: context)
+  }
+
+  var name: String { self.nameRaw ?? "Invalid weight-group name" }
+
+  var uuid: UUID {
+    guard let uuidRaw = uuidRaw else {
+      print("UUIDRaw was unexpectedly nil, regenerating for \(self.name)")
+      let uuid = UUID()
+      self.uuidRaw = uuid
+      self.save(context: DatabaseStore.shared.container.viewContext)
+      return uuid
+    }
+    return uuidRaw
+  }
+
+  func getAssignmentsArray() -> [Assignment] {
+    Array(assignments as? Set<Assignment> ?? [])
+  }
+
+  var assignmentsArrayForDisplay: [Assignment] {
+    self.getAssignmentsArray().sorted { $0.creationDate! < $1.creationDate! }
   }
 
   func addToAssignments(assignments: [Assignment]) {
@@ -40,12 +64,11 @@ public extension WeightGroup {
   }
 
   var isValid: Bool {
-    if rawWeight <= 0 {
+    if weightRaw <= 0 {
       return false
     }
 
-    let assignmentsArray = Array(assignments as? Set<Assignment> ?? []).filter { $0.isValid }
-    if assignmentsArray.count == 0 {
+    if self.getAssignmentsArray().count == 0 {
       return false
     }
 

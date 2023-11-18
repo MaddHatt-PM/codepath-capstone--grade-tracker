@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct CourseGridSubView: View {
+  @FetchRequest(
+    sortDescriptors: [NSSortDescriptor(keyPath: \Course.nameRaw, ascending: true)],
+    animation: .default)
+  private var courses: FetchedResults<Course>
+
   var body: some View {
     let gap = StylingConstants.gridGap
     let halfScreenWidth: CGFloat = UIScreen.main.bounds.width / 2 - gap
@@ -19,8 +24,8 @@ struct CourseGridSubView: View {
     LazyVGrid(columns: columns,
               alignment: .center,
               spacing: gap / 2) {
-      ForEach(0 ..< 5, id: \.self) { id in
-        CurrentCourseGridCell(name: "\(id)")
+      ForEach(courses) { course in
+        CurrentCourseGridCell(name: course.name, course: course)
       }
     }
   }

@@ -7,15 +7,17 @@
 
 import CoreData
 import Foundation
+import SwiftUI
 
 public extension Assignment {
-  func create(_ context: NSManagedObjectContext,
-              name: String,
-              earnedPoints: Int32?,
-              totalPoints: Int32?,
-              enabled: Bool = false) -> Self
+  convenience init(_ context: NSManagedObjectContext,
+                   name: String,
+                   earnedPoints: Int32?,
+                   totalPoints: Int32?,
+                   enabled: Bool = true)
   {
-    self.name = name
+    self.init(context: context)
+    self.nameRaw = name
 
     self.earnedPoints = earnedPoints ?? -1
     self.totalPoints = totalPoints ?? -1
@@ -23,9 +25,20 @@ public extension Assignment {
 
     self.creationDate = .now
     self.lastModifiedDate = .now
-    self.uuid = UUID()
+    self.uuidRaw = UUID()
     DatabaseStore.saveDatabase(context: context)
-    return self
+  }
+
+  var name: String { self.nameRaw ?? "Nil assignment name" }
+  var uuid: UUID {
+    guard let uuidRaw = uuidRaw else {
+      print("UUIDRaw was unexpectedly nil, regenerating for \(self.name)")
+      let uuid = UUID()
+      self.uuidRaw = uuid
+      self.save(context: DatabaseStore.shared.container.viewContext)
+      return uuid
+    }
+    return uuidRaw
   }
 
   func save(context: NSManagedObjectContext) {
@@ -40,5 +53,15 @@ public extension Assignment {
 
   var grade: Double {
     return Double(earnedPoints) / Double(totalPoints)
+  }
+
+  @ViewBuilder
+  var listViewInfo: some View {
+    if self.isValid == false {
+      Image(systemName: "x.circle.fill")
+        .tint(.red)
+    } else {
+      Text("\(Int(self.grade * 100))%")
+    }
   }
 }

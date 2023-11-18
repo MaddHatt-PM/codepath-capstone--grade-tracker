@@ -36,6 +36,11 @@
 		CADEB82B2AFC874300330123 /* TimeSlot+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB82A2AFC874300330123 /* TimeSlot+Extensions.swift */; };
 		CADEB82D2AFC88C700330123 /* WeightGroup+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB82C2AFC88C700330123 /* WeightGroup+Extensions.swift */; };
 		CADEB82F2AFC9B3100330123 /* DBGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADEB82E2AFC9B3100330123 /* DBGen.swift */; };
+		CAEBDA282B007573003CFD91 /* CourseAssignmentTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBDA272B007573003CFD91 /* CourseAssignmentTab.swift */; };
+		CAEBDA2A2B0075B3003CFD91 /* GetCourseForPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBDA292B0075B3003CFD91 /* GetCourseForPreviews.swift */; };
+		CAEBDA2D2B015DFF003CFD91 /* NSSet+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBDA2C2B015DFF003CFD91 /* NSSet+Extensions.swift */; };
+		CAEBDA2F2B080FC6003CFD91 /* BaseScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBDA2E2B080FC6003CFD91 /* BaseScreen.swift */; };
+		CAEBDA322B08367F003CFD91 /* AssignmentDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEBDA312B08367F003CFD91 /* AssignmentDetailScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +95,11 @@
 		CADEB82A2AFC874300330123 /* TimeSlot+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeSlot+Extensions.swift"; sourceTree = "<group>"; };
 		CADEB82C2AFC88C700330123 /* WeightGroup+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeightGroup+Extensions.swift"; sourceTree = "<group>"; };
 		CADEB82E2AFC9B3100330123 /* DBGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBGen.swift; sourceTree = "<group>"; };
+		CAEBDA272B007573003CFD91 /* CourseAssignmentTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAssignmentTab.swift; sourceTree = "<group>"; };
+		CAEBDA292B0075B3003CFD91 /* GetCourseForPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCourseForPreviews.swift; sourceTree = "<group>"; };
+		CAEBDA2C2B015DFF003CFD91 /* NSSet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSet+Extensions.swift"; sourceTree = "<group>"; };
+		CAEBDA2E2B080FC6003CFD91 /* BaseScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScreen.swift; sourceTree = "<group>"; };
+		CAEBDA312B08367F003CFD91 /* AssignmentDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDetailScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				CAA4E4762AF88C5800B6863E /* Preview Assets.xcassets */,
+				CAEBDA292B0075B3003CFD91 /* GetCourseForPreviews.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 				CADEB7D22AF983A400330123 /* RootScreen */,
 				CADEB7CB2AF981F600330123 /* SettingsScreen */,
 				CADEB7CA2AF981EA00330123 /* CourseScreen */,
+				CAEBDA2E2B080FC6003CFD91 /* BaseScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -201,6 +213,8 @@
 		CADEB7CA2AF981EA00330123 /* CourseScreen */ = {
 			isa = PBXGroup;
 			children = (
+				CAEBDA302B083661003CFD91 /* AssignmentDetailScreen */,
+				CAEBDA2B2B015D36003CFD91 /* AssignmentTab */,
 				CADEB7D02AF9824F00330123 /* CourseMainScreen.swift */,
 			);
 			path = CourseScreen;
@@ -229,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				CADEB7DC2AF989FB00330123 /* StylingConstants.swift */,
+				CAEBDA2C2B015DFF003CFD91 /* NSSet+Extensions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -259,6 +274,22 @@
 				CADEB82E2AFC9B3100330123 /* DBGen.swift */,
 			);
 			path = Generators;
+			sourceTree = "<group>";
+		};
+		CAEBDA2B2B015D36003CFD91 /* AssignmentTab */ = {
+			isa = PBXGroup;
+			children = (
+				CAEBDA272B007573003CFD91 /* CourseAssignmentTab.swift */,
+			);
+			path = AssignmentTab;
+			sourceTree = "<group>";
+		};
+		CAEBDA302B083661003CFD91 /* AssignmentDetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CAEBDA312B08367F003CFD91 /* AssignmentDetailScreen.swift */,
+			);
+			path = AssignmentDetailScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,13 +422,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAEBDA322B08367F003CFD91 /* AssignmentDetailScreen.swift in Sources */,
 				CADEB81B2AFC7B3B00330123 /* Course+IconIDs.swift in Sources */,
 				CAA4E47C2AF88C5800B6863E /* GradeTracker.xcdatamodeld in Sources */,
+				CAEBDA2F2B080FC6003CFD91 /* BaseScreen.swift in Sources */,
 				CADEB8272AFC867800330123 /* NoteAttachment+Extensions.swift in Sources */,
 				CADEB8292AFC86CB00330123 /* NoteTag+Extensions.swift in Sources */,
 				CAA4E4792AF88C5800B6863E /* DatabaseStore.swift in Sources */,
 				CAA4E4722AF88C5700B6863E /* RootScreen.swift in Sources */,
 				CADEB82B2AFC874300330123 /* TimeSlot+Extensions.swift in Sources */,
+				CAEBDA2D2B015DFF003CFD91 /* NSSet+Extensions.swift in Sources */,
 				CADEB7D42AF983BA00330123 /* AddCourseSheet.swift in Sources */,
 				CADEB82D2AFC88C700330123 /* WeightGroup+Extensions.swift in Sources */,
 				CADEB8152AFC756500330123 /* DBGen+SimpleSample.swift in Sources */,
@@ -406,6 +440,7 @@
 				CADEB8172AFC75D200330123 /* Course+Extensions.swift in Sources */,
 				CADEB81D2AFC7DDE00330123 /* Assignment+Extensions.swift in Sources */,
 				CADEB81F2AFC82B800330123 /* Degree+Extensions.swift in Sources */,
+				CAEBDA282B007573003CFD91 /* CourseAssignmentTab.swift in Sources */,
 				CAA4E4702AF88C5700B6863E /* GradeTrackerApp.swift in Sources */,
 				CADEB7D82AF9860D00330123 /* CourseGridSubView.swift in Sources */,
 				CADEB8212AFC840D00330123 /* Degree+DegreeStatuses.swift in Sources */,
@@ -414,6 +449,7 @@
 				CADEB8192AFC797400330123 /* Course+ColorIDs.swift in Sources */,
 				CADEB7DD2AF989FB00330123 /* StylingConstants.swift in Sources */,
 				CADEB82F2AFC9B3100330123 /* DBGen.swift in Sources */,
+				CAEBDA2A2B0075B3003CFD91 /* GetCourseForPreviews.swift in Sources */,
 				CADEB7DA2AF9892100330123 /* CurrentCourseGridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

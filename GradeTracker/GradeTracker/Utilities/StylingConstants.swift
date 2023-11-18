@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 import UIKit
 
 struct StylingConstants {
   static let gridGap: CGFloat = 8
   static let gridCellHeight: CGFloat = (UIScreen.main.bounds.width / 2 - (2 * gridGap)) / 1.5
   static let gridCellCornerRadius: CGFloat = 22
+  static var colors: [String: Color] = [
+    "Background": Color("Background")
+  ]
 }
