@@ -11,6 +11,17 @@ struct CourseAssignmentsTab: View {
   let course: Course
 
   @State private var isToggled = false
+  @Environment(\.managedObjectContext) private var viewContext
+
+  func delete(_ assignment: Assignment) {
+    let name = assignment.name
+    viewContext.delete(assignment)
+    do {
+      try viewContext.save()
+    } catch {
+      fatalError("Fatal error on deleting \(name) and saving.")
+    }
+  }
 
   var body: some View {
     let weightGroups: [WeightGroup] = course.weightGroupsForDisplay
@@ -29,7 +40,12 @@ struct CourseAssignmentsTab: View {
                     assignment.listViewInfo
                   }
                 }
+                .swipeActions {
+                  Button(role: .destructive) { delete(assignment) } label: { Text("Delete") }
+                    .tint(.red)
+                }
               }
+
             } header: {
               HStack {
                 Text(weightGroup.name)
@@ -38,11 +54,15 @@ struct CourseAssignmentsTab: View {
               }
             }
           }
+
+          Spacer()
+            .listRowBackground(Color.clear)
+            .frame(height: QuickAddButton.height)
         }
         .scrollContentBackground(.hidden)
 
         Color.black
-          .opacity(isToggled ? 0.2 : 0.0)
+          .opacity(isToggled ? 0.35 : 0.0)
           .onTapGesture {
             isToggled.toggle()
           }
@@ -76,6 +96,8 @@ struct CourseAssignmentsTab: View {
 }
 
 struct QuickAddButton: View {
+  static let height: CGFloat = 24
+
   @Binding private var isToggled: Bool
   @State private var rotationDegree = 0.0
 
@@ -94,7 +116,7 @@ struct QuickAddButton: View {
         } label: {
           Image(systemName: "plus")
             .resizable()
-            .frame(width: 24, height: 24)
+            .frame(width: QuickAddButton.height, height: QuickAddButton.height)
             .padding()
             .foregroundStyle(.white)
             .background(Color.indigo)

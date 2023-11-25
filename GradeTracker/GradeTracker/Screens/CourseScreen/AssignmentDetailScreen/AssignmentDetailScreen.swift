@@ -12,22 +12,24 @@ struct AssignmentDetailScreen: View {
   var body: some View {
     BaseScreen {
       ScrollView {
-        HStack {
-          Text("Earned Points / Total Points: \(assignment.earnedPoints)/\(assignment.totalPoints)")
-          Spacer()
-        }
-        HStack {
-          Text("Creation Date: \(assignment.creationDate!)")
-          Spacer()
-        }
-        HStack {
-          Text("Last Modified Date: \(assignment.lastModifiedDate!)")
-          Spacer()
-        }
-        HStack {
-          Text("Enabled: \(String(assignment.enabled))")
-          Spacer()
-        }
+        VStack {
+          HStack {
+            Text("Earned Points / Total Points: \(assignment.earnedPoints)/\(assignment.totalPoints)")
+            Spacer()
+          }
+          HStack {
+            Text("Creation Date: \(assignment.creationDate!)")
+            Spacer()
+          }
+          HStack {
+            Text("Last Modified Date: \(assignment.lastModifiedDate!)")
+            Spacer()
+          }
+          HStack {
+            Text("Enabled: \(String(assignment.enabled))")
+            Spacer()
+          }
+        }.padding()
       }
     }
     .navigationTitle(assignment.name)

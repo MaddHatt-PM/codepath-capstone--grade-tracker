@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA373D762B1112DF00A71463 /* UIPickerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA373D752B1112DF00A71463 /* UIPickerTextField.swift */; };
+		CA373D792B11165700A71463 /* PickerField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA373D782B11165700A71463 /* PickerField.swift */; };
+		CA373D7C2B111FBB00A71463 /* TextFieldStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA373D7B2B111FBB00A71463 /* TextFieldStyles.swift */; };
+		CA373D7F2B11229C00A71463 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA373D7E2B11229C00A71463 /* KeyboardAdaptive.swift */; };
 		CAA4E4702AF88C5700B6863E /* GradeTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4E46F2AF88C5700B6863E /* GradeTrackerApp.swift */; };
 		CAA4E4722AF88C5700B6863E /* RootScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA4E4712AF88C5700B6863E /* RootScreen.swift */; };
 		CAA4E4742AF88C5800B6863E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAA4E4732AF88C5800B6863E /* Assets.xcassets */; };
@@ -61,6 +65,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA373D752B1112DF00A71463 /* UIPickerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPickerTextField.swift; sourceTree = "<group>"; };
+		CA373D782B11165700A71463 /* PickerField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerField.swift; sourceTree = "<group>"; };
+		CA373D7B2B111FBB00A71463 /* TextFieldStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyles.swift; sourceTree = "<group>"; };
+		CA373D7E2B11229C00A71463 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		CAA4E46C2AF88C5700B6863E /* GradeTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GradeTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAA4E46F2AF88C5700B6863E /* GradeTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradeTrackerApp.swift; sourceTree = "<group>"; };
 		CAA4E4712AF88C5700B6863E /* RootScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootScreen.swift; sourceTree = "<group>"; };
@@ -127,6 +135,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA373D742B1112B900A71463 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				CA373D7A2B111F9500A71463 /* TextField */,
+				CA373D772B11163E00A71463 /* PickerField */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		CA373D772B11163E00A71463 /* PickerField */ = {
+			isa = PBXGroup;
+			children = (
+				CA373D752B1112DF00A71463 /* UIPickerTextField.swift */,
+				CA373D782B11165700A71463 /* PickerField.swift */,
+			);
+			path = PickerField;
+			sourceTree = "<group>";
+		};
+		CA373D7A2B111F9500A71463 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				CA373D7B2B111FBB00A71463 /* TextFieldStyles.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		CA373D7D2B11228A00A71463 /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				CA373D7E2B11229C00A71463 /* KeyboardAdaptive.swift */,
+			);
+			path = ViewModifier;
+			sourceTree = "<group>";
+		};
 		CAA4E4632AF88C5700B6863E = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +192,8 @@
 		CAA4E46E2AF88C5700B6863E /* GradeTracker */ = {
 			isa = PBXGroup;
 			children = (
+				CA373D7D2B11228A00A71463 /* ViewModifier */,
+				CA373D742B1112B900A71463 /* Components */,
 				CADEB7DB2AF989ED00330123 /* Utilities */,
 				CADEB7C92AF981E100330123 /* Screens */,
 				CAA4E4A02AF88CF700B6863E /* Database */,
@@ -424,6 +468,7 @@
 			files = (
 				CAEBDA322B08367F003CFD91 /* AssignmentDetailScreen.swift in Sources */,
 				CADEB81B2AFC7B3B00330123 /* Course+IconIDs.swift in Sources */,
+				CA373D7F2B11229C00A71463 /* KeyboardAdaptive.swift in Sources */,
 				CAA4E47C2AF88C5800B6863E /* GradeTracker.xcdatamodeld in Sources */,
 				CAEBDA2F2B080FC6003CFD91 /* BaseScreen.swift in Sources */,
 				CADEB8272AFC867800330123 /* NoteAttachment+Extensions.swift in Sources */,
@@ -441,14 +486,17 @@
 				CADEB81D2AFC7DDE00330123 /* Assignment+Extensions.swift in Sources */,
 				CADEB81F2AFC82B800330123 /* Degree+Extensions.swift in Sources */,
 				CAEBDA282B007573003CFD91 /* CourseAssignmentTab.swift in Sources */,
+				CA373D792B11165700A71463 /* PickerField.swift in Sources */,
 				CAA4E4702AF88C5700B6863E /* GradeTrackerApp.swift in Sources */,
 				CADEB7D82AF9860D00330123 /* CourseGridSubView.swift in Sources */,
 				CADEB8212AFC840D00330123 /* Degree+DegreeStatuses.swift in Sources */,
 				CADEB8252AFC860D00330123 /* Note+Extensions.swift in Sources */,
+				CA373D762B1112DF00A71463 /* UIPickerTextField.swift in Sources */,
 				CADEB7D12AF9824F00330123 /* CourseMainScreen.swift in Sources */,
 				CADEB8192AFC797400330123 /* Course+ColorIDs.swift in Sources */,
 				CADEB7DD2AF989FB00330123 /* StylingConstants.swift in Sources */,
 				CADEB82F2AFC9B3100330123 /* DBGen.swift in Sources */,
+				CA373D7C2B111FBB00A71463 /* TextFieldStyles.swift in Sources */,
 				CAEBDA2A2B0075B3003CFD91 /* GetCourseForPreviews.swift in Sources */,
 				CADEB7DA2AF9892100330123 /* CurrentCourseGridCell.swift in Sources */,
 			);

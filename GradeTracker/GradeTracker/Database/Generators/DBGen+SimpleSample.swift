@@ -92,5 +92,10 @@ public extension DBGen {
     CreateCourseAlgorithms(context)
     CreateCourseProgrammingCompetitions(context)
     CreateCourseLinearAlgebra(context)
+    do {
+      try context.save()
+    } catch {
+      fatalError("Tried to save")
+    }
   }
 }

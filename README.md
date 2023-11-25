@@ -278,7 +278,7 @@ __WeightGroup__
 ✅ [4] CoreData models for courses, weight groups, assignments, and notes.  
 ✅ [4] Setup initializers and extension methods for all CoreData Entities
 ✅ [2] Prototype database generator  
-[4] Initial UI pass for demo database.  
+DONE Initial UI pass for demo database.  
 ✅ [0] Verifying demo database is working via console.  
 DONE [1] Added more data fields for DBGen.SimpleSample()
 
@@ -287,12 +287,25 @@ DONE [1] Added more data fields for DBGen.SimpleSample()
 DONE [2] Prototype data for SwiftUI Previews for course, weight groups, assignments, and notes.  
 DONE [1] Figure out how to call save() on CoreData entity by static reference to Context.  
 [1] Popover to edit all weight groups of a course.  
-[1] Push to edit assignment.  
-[1] Popover to create assignment.  
+DONE [1] Push to edit assignment.  
+DONE [1] Popover to create assignment.  
 DONE [1] ComputeWeightedAverage with course parameter.  
 [2] Second pass at course:assignments tab.  
 [2] Second pass at course:notes tab.  
 [4] Initial pass at course:visualizer SwiftUI graphs.  
+DONE [3] UI Pass to create new courses via popover  
+DONE [2] Added context menu for courses for grid courses  
+DONE [2] Added delete function to course grid tiles (likely dev only)  
+DONE [2] Added quick add for weight groups of course grid titles.  
+DONE [2] Added generic sheet for creating new CoreData entities.  
+DONE [4] Fleshed out the Add Course sheet with primitive data fields to create the CoreData entity.  
+DONE [2] Added focus switching from onSubmit of Form field elements.  
+DONE [1] Added functionality for the `create course` button to be disabled when the `course name` is empty.  
+DONE [1] Added functionality for the sheet to not be dismissible via gesture when the `course name` is not empty.  
+DONE [1] Added base screen component with encloser for consistent UI design  
+DONE [1] Added delete functionality of assignments via list swipe gesture
+
+
 
 ### Soft Required Features
 DONE [1] Normalize weight groups when total does not equal 100%.  
@@ -348,3 +361,31 @@ __Video Walkthrough__
 
 __Reflection__  
 For this week I wish i could have made more progress with my app, but unfortunately I had some large exams this week for university. I had also thought that we had another week to work on the project. Nevertheless, I feel that I made good progress with my knowledge of Swift and SwiftUI. Specifically in the ideology of extensions and shifting the logic away from the user interface code. The user interface shouldn't worry about the optional values from CoreData strings, which are always optional even with a default string provided. This leads to cleaner user interface code and more usable logic. I wish I could have had more time to work on the CRUD operations. I'm enjoying this project and hopefully I'll be able to fully finish and polish it up for release over break!
+
+
+### Week 03 Progress
+__Sprint Tasks Completed__  
+[-] Initial UI pass for demo database.  
+[1] Added more data fields for DBGen.SimpleSample().  
+[2] Prototype data for SwiftUI Previews for course, weight groups, assignments, and notes.  
+[1] Figure out how to call save() on CoreData entity by static reference to Context.  
+[1] Push to edit assignment.  
+[1] Popover to create assignment.  
+[1] ComputeWeightedAverage with course parameter.  
+[3] UI Pass to create new courses via popover.  
+[2] Added context menu for courses for grid courses.  
+[2] Added delete function to course grid tiles (likely dev only).  
+[2] Added quick add for weight groups of course grid titles.  
+[2] Added generic sheet for creating new CoreData entities.  
+[4] Fleshed out the Add Course sheet with primitive data fields to create the CoreData entity.  
+[2] Added focus switching from onSubmit of Form field elements.  
+[1] Added functionality for the `create course` button to be disabled when the `course name` is empty.  
+[1] Added functionality for the sheet to not be dismissible via gesture when the `course name` is not empty.  
+[1] Added base screen component with encloser for consistent UI design.  
+[1] Added delete functionality of assignments via list swipe gesture.  
+
+__Video Walkthrough__
+[Demo Video of Week Three](https://youtube.com/shorts/wWpPCYgRJ9c?feature=share)
+
+__Reflection__  
+For this week I completed a great chunk of work for the final submission! I've implemented three out of the four CRUD operations in some form, with update being the exception. I'm having a lot of fun implementing the app with SwiftUI as there's a heavy push for organization. So much so that the compiler will fail to evaluate in a certain amount of time and advise to separate your computation into other functions/variables/structs/classes. I'm hoping to work on this project and get it completed before the new year!
